@@ -1,22 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessChecker", "ChessChecker\ChessChecker.csproj", "{994A1993-DFE5-4E31-81D7-23A0C9DC3CC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessChecker", "ChessChecker\ChessChecker.csproj", "{400F61D7-D573-459D-9DA5-DD4AE4C90342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessChecker.Tests", "ChessChecker.Tests\ChessChecker.Tests.csproj", "{B20F2AC3-A5A7-4FC3-90FF-3426E6482D4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{994A1993-DFE5-4E31-81D7-23A0C9DC3CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{994A1993-DFE5-4E31-81D7-23A0C9DC3CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{994A1993-DFE5-4E31-81D7-23A0C9DC3CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{994A1993-DFE5-4E31-81D7-23A0C9DC3CC9}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{400F61D7-D573-459D-9DA5-DD4AE4C90342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400F61D7-D573-459D-9DA5-DD4AE4C90342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400F61D7-D573-459D-9DA5-DD4AE4C90342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400F61D7-D573-459D-9DA5-DD4AE4C90342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B20F2AC3-A5A7-4FC3-90FF-3426E6482D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B20F2AC3-A5A7-4FC3-90FF-3426E6482D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B20F2AC3-A5A7-4FC3-90FF-3426E6482D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B20F2AC3-A5A7-4FC3-90FF-3426E6482D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
