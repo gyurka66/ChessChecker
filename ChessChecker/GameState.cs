@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChessChecker
 {
-    class GameState
+    public class GameState
     {
     }
 }
