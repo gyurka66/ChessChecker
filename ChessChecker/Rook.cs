@@ -8,5 +8,9 @@ namespace ChessChecker
 {
     public class Rook : Piece
     {
+        public override List<Square> PossibleMoves(Square[,] board, (int, int) piecePosition)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

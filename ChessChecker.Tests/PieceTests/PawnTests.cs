@@ -24,7 +24,7 @@ namespace ChessChecker.Tests.PieceTests
             }
 
             PossibleMovesForWhite(board);
-            PossibleMovesForBlack
+            PossibleMovesForBlack(board);
 
         }
 
@@ -40,20 +40,19 @@ namespace ChessChecker.Tests.PieceTests
 
             Assert.Contains(board[1, 0], moves);
 
-            // in Middle of board
-            (int, int) piecePosition = (2, 3);
-            List<Square> moves = piece.PossibleMoves(board, piecePosition);
+            piecePosition = (2, 3);
+            moves = piece.PossibleMoves(board, piecePosition);
             Assert.Contains(board[1, 2], moves);
             Assert.Contains(board[3, 2], moves);
 
             // on Right border of board
-            (int, int) piecePosition = (7, 3);
-            List<Square> moves = piece.PossibleMoves(board, piecePosition);
+            piecePosition = (7, 3);
+            moves = piece.PossibleMoves(board, piecePosition);
             Assert.Contains(board[6, 2], moves);
 
             // at the end of board
-            (int, int) piecePosition = (4, 0);
-            List<Square> moves = piece.PossibleMoves(board, piecePosition);
+            piecePosition = (4, 0);
+            moves = piece.PossibleMoves(board, piecePosition);
         }
 
         private void PossibleMovesForWhite(Square[,] board)
@@ -69,19 +68,19 @@ namespace ChessChecker.Tests.PieceTests
             Assert.Contains(board[1, 2], moves);
 
             // in Middle of board
-            (int, int) piecePosition = (2, 3);
-            List<Square> moves = piece.PossibleMoves(board, piecePosition);
+            piecePosition = (2, 3);
+            moves = piece.PossibleMoves(board, piecePosition);
             Assert.Contains(board[1, 4], moves);
             Assert.Contains(board[3, 4], moves);
 
             // on Right border of board
-            (int, int) piecePosition = (7, 3);
-            List<Square> moves = piece.PossibleMoves(board, piecePosition);
+            piecePosition = (7, 3);
+            moves = piece.PossibleMoves(board, piecePosition);
             Assert.Contains(board[6, 4], moves);
 
             // at the end of board
-            (int, int) piecePosition = (4, 7);
-            List<Square> moves = piece.PossibleMoves(board, piecePosition);
+            piecePosition = (4, 7);
+            moves = piece.PossibleMoves(board, piecePosition);
         }
     }
 }
