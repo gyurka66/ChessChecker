@@ -9,7 +9,7 @@ namespace ChessChecker
     {
         public FENString(string input)
         {
-            if (string.IsNullOrEmpty(input))
+            if (string.IsNullOrWhiteSpace(input))
             {
                 throw new ArgumentException("FENString input was null or empty");
             }
