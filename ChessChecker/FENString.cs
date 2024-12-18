@@ -11,13 +11,13 @@ namespace ChessChecker
     /// </summary>
     public class FENString
     {
-        public readonly string piecePlacement;
-        public readonly string activeColour;
-        public readonly string castlingRights;
-        public readonly string enPassentTargets;
-        public readonly string halfmoveClock;
+        public string PiecePlacement { get; init; }
+        public string ActiveColour { get; init; }
+        public string CastlingRights { get; init; }
+        public string EnPassantTargets { get; init; }
+        public string HalfmoveClock { get; init; }
+        public string FullmoveNumber { get; init; }
 
-        public readonly string fullmoveNumber;
         public FENString(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
@@ -25,7 +25,7 @@ namespace ChessChecker
                 throw new ArgumentException("FENString input was null or empty");
             }
             var fields = input.Split(" ");
-            piecePlacement = fields[0];
+            PiecePlacement = fields[0];
             return;
         }
     }

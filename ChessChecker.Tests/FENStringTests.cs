@@ -25,8 +25,8 @@ namespace ChessChecker.Tests
             var actual = new FENString(input);
             Assert.Multiple(() =>
             {
-                Assert.That(actual.piecePlacement, Is.Not.Null);
-                Assert.That(actual.piecePlacement, Is.Not.Empty);
+                Assert.That(actual.PiecePlacement, Is.Not.Null);
+                Assert.That(actual.PiecePlacement, Is.Not.Empty);
             });
         }
     }
