@@ -10,13 +10,19 @@ namespace ChessChecker.Tests
     [TestFixture]
     public class GameStateFactoryTests
     {
-        /* I just realized we don't need this yet
-        public void GameStateShouldBeCreated()
-        {
-            GameStateFactory factory = new GameStateFactory();
-            GameState state = factory.CreateGameState("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+        private GameStateFactory? _sut;
 
+        [SetUp]
+        public void Setup()
+        {
+            _sut = new GameStateFactory();
         }
-        */
+
+        [Test]
+        public void ShouldThrowExceptionOnEmptyString()
+        {
+            string input = string.Empty;
+            Assert.Throws<ArgumentException>(() => _sut!.CreateGameState(input));
+        }
     }
 }

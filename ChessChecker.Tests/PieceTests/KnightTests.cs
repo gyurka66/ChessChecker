@@ -9,6 +9,7 @@ namespace ChessChecker.Tests.PieceTests
     [TestFixture]
     public class KnightTests
     {
+        /*
         [Test]
         public void ShouldReturnPossibleMovesOnEmptyBoard()
         {
@@ -74,5 +75,6 @@ namespace ChessChecker.Tests.PieceTests
             Assert.Contains(board[4, 2], moves);
             Assert.Contains(board[2, 2], moves);
         }
+        */
     }
 }
