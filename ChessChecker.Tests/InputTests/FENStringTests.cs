@@ -54,6 +54,13 @@ namespace ChessChecker.Tests.InputTests
             Assert.Throws<ArgumentException>(() => new FENString(input));
         }
 
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0")]
+        public void ShouldNotThrowExceptionOnValidPiecePlacement(string input)
+        {
+            Assert.DoesNotThrow(() => new FENString(input));
+        }
+
         [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0", ExpectedResult = "w")]
         [TestCase("4k2r/6r1/8/8/8/8/3R4/R3K3 w Qk - 0 1", ExpectedResult = "w")]
         [TestCase(
