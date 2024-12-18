@@ -1,11 +1,9 @@
 namespace ChessChecker.Tests;
 
-using NUnit.Framework;
-using ChessChecker;
-
 public class Tests
 {
-    private Example _example;
+    private Example? _example;
+
     [SetUp]
     public void Setup()
     {
@@ -15,7 +13,7 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Assert.True(_example.IsOdd());
-        Assert.IsFalse(_example.IsEven());
+        Assert.That(_example!.IsOdd, Is.True);
+        Assert.That(_example!.IsEven(), Is.False);
     }
 }
