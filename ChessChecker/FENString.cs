@@ -9,9 +9,9 @@ namespace ChessChecker
     {
         public FENString(string input)
         {
-            if (input == null)
+            if (string.IsNullOrEmpty(input))
             {
-                throw new ArgumentException("FENString input was null");
+                throw new ArgumentException("FENString input was null or empty");
             }
             return;
         }
