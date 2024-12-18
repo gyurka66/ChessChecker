@@ -7,7 +7,12 @@ namespace ChessChecker
 {
     public class FENString
     {
-        public FENString(string input) {
+        public FENString(string input)
+        {
+            if (input == null)
+            {
+                throw new ArgumentException("FENString input was null");
+            }
             return;
         }
     }
