@@ -25,6 +25,10 @@ namespace ChessChecker
                 throw new ArgumentException("FENString input was null or empty");
             }
             var fields = input.Split(" ");
+            if (fields.Length != 6)
+            {
+                throw new ArgumentException("FENString did not contain all six fields");
+            }
             PiecePlacement = fields[0];
             ActiveColour = fields[1];
             return;
