@@ -30,11 +30,17 @@ namespace ChessChecker
             {
                 throw new ArgumentException("FENString did not contain all six fields");
             }
+
             if (!IsPiecePlacementValid(fields[0]))
             {
                 throw new ArgumentException("Proposed Piece Plaement was invalid");
             }
             PiecePlacement = fields[0];
+
+            if (!IsActiveColourValid(fields[1]))
+            {
+                throw new ArgumentException("Proposed Active Colour is invalid");
+            }
             ActiveColour = fields[1];
             CastlingRights = fields[2];
             EnPassantTargets = fields[3];
@@ -54,6 +60,12 @@ namespace ChessChecker
             Regex invalidChars =
                 new(@"([^rnbqkp/1-8])", RegexOptions.IgnoreCase | RegexOptions.Compiled);
             return !invalidChars.IsMatch(proposedPiecePlacement);
+        }
+
+        private bool IsActiveColourValid(string proposedActiveColour)
+        {
+            return proposedActiveColour.ToLower().Equals("w")
+                || proposedActiveColour.ToLower().Equals("b");
         }
     }
 }
