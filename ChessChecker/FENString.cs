@@ -15,8 +15,8 @@ namespace ChessChecker
         public string ActiveColour { get; init; }
         public string CastlingRights { get; init; }
         public string EnPassantTargets { get; init; }
-        public string HalfmoveClock { get; init; }
-        public string FullmoveNumber { get; init; }
+        public int HalfmoveClock { get; init; }
+        public int FullmoveNumber { get; init; }
 
         public FENString(string input)
         {
@@ -32,6 +32,9 @@ namespace ChessChecker
             PiecePlacement = fields[0];
             ActiveColour = fields[1];
             CastlingRights = fields[2];
+            EnPassantTargets = fields[3];
+            HalfmoveClock = int.Parse(fields[4]);
+            FullmoveNumber = int.Parse(fields[5]);
             return;
         }
     }
