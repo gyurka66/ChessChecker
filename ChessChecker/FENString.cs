@@ -31,6 +31,7 @@ namespace ChessChecker
             }
             PiecePlacement = fields[0];
             ActiveColour = fields[1];
+            CastlingRights = fields[2];
             return;
         }
     }
