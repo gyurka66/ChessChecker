@@ -26,6 +26,7 @@ namespace ChessChecker
             }
             var fields = input.Split(" ");
             PiecePlacement = fields[0];
+            ActiveColour = fields[1];
             return;
         }
     }
