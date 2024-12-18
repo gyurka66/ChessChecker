@@ -17,6 +17,18 @@ namespace ChessChecker.Tests.InputTests
             Assert.Throws<ArgumentException>(() => new FENString(input));
         }
 
+        [TestCase("w - - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR - - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - -")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")]
+        public void ShouldThrowExceptionOnMissingField(string input)
+        {
+            Assert.Throws<ArgumentException>(() => new FENString(input));
+        }
+
         [TestCase(
             "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0",
             ExpectedResult = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
@@ -34,14 +46,10 @@ namespace ChessChecker.Tests.InputTests
             return new FENString(input).PiecePlacement;
         }
 
-        [TestCase("w - - 0 0")]
-        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR - - 0 0")]
-        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - 0 0")]
-        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w 0 0")]
-        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0")]
-        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - -")]
-        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")]
-        public void ShouldThrowExceptionOnMissingField(string input)
+        [TestCase("r w - - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0")]
+        [TestCase("gnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0")]
+        public void ShouldThrowExceptionOnInvalidPiecePlacement(string input)
         {
             Assert.Throws<ArgumentException>(() => new FENString(input));
         }
