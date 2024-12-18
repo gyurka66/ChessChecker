@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using NSubstitute;
 
 namespace ChessChecker.Tests.InputTests
 {
@@ -11,17 +12,19 @@ namespace ChessChecker.Tests.InputTests
     public class GameStateFactoryTests
     {
         private GameStateFactory? _sut;
+        private IFENString? _mockFEN;
 
         [SetUp]
         public void Setup()
         {
             _sut = new GameStateFactory();
+            _mockFEN = Substitute.For<IFENString>();
         }
 
         [Test]
-        public void ShouldThrowExceptionOnEmptyString()
+        public void ShouldThrowExceptionOnNullInput()
         {
-            string input = string.Empty;
+            string? input = null;
             Assert.Throws<ArgumentException>(() => _sut!.CreateGameState(input));
         }
     }
