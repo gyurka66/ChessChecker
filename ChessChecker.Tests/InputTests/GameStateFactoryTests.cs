@@ -11,13 +11,11 @@ namespace ChessChecker.Tests.InputTests
     [TestFixture]
     public class GameStateFactoryTests
     {
-        private GameStateFactory? _sut;
         private IFENString? _mockFEN;
 
         [SetUp]
         public void Setup()
         {
-            _sut = new GameStateFactory();
             _mockFEN = Substitute.For<IFENString>();
         }
 
@@ -25,7 +23,8 @@ namespace ChessChecker.Tests.InputTests
         public void ShouldThrowExceptionOnNullInput()
         {
             IFENString? input = null;
-            Assert.Throws<ArgumentException>(() => _sut!.CreateGameState(input));
+            GameStateFactory sut = new GameStateFactory(null);
+            Assert.Throws<ArgumentException>(() => sut.CreateGameState());
         }
     }
 }
