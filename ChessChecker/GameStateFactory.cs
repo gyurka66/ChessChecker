@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 
 namespace ChessChecker
 {
-    public class GameStateFactory
+    public class GameStateFactory(IFENString FENString)
     {
-        public GameState CreateGameState(IFENString fenString)
+        private readonly IFENString? _FENString = FENString;
+
+        public GameState CreateGameState()
         {
-            if (fenString == null)
+            if (_FENString == null)
             {
                 throw new ArgumentException("FEN String was empty");
             }
