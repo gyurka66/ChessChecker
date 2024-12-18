@@ -24,6 +24,8 @@ namespace ChessChecker
             {
                 throw new ArgumentException("FENString input was null or empty");
             }
+            var fields = input.Split(" ");
+            piecePlacement = fields[0];
             return;
         }
     }
