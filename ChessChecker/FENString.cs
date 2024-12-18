@@ -30,7 +30,7 @@ namespace ChessChecker
             {
                 throw new ArgumentException("FENString did not contain all six fields");
             }
-            if (!VerifyPiecePlacement(fields[0]))
+            if (!IsPiecePlacementValid(fields[0]))
             {
                 throw new ArgumentException("Proposed Piece Plaement was invalid");
             }
@@ -43,10 +43,17 @@ namespace ChessChecker
             return;
         }
 
-        private bool VerifyPiecePlacement(string proposedPiecePlacement)
+        private bool IsPiecePlacementValid(string proposedPiecePlacement)
         {
-            GeneratedRegexAttribute regex = new("([rnbqkp/1-8])+");
-            return regex.Match(proposedPiecePlacement);
+            // A Piece Placement substring should have exactly seven '/'s, to divide the rows
+            if (proposedPiecePlacement.Count(c => c == '/') != 7)
+            {
+                return false;
+            }
+            // Checks to see if there are any invalid characters in the proposed string
+            Regex invalidChars =
+                new(@"([^rnbqkp/1-8])", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            return !invalidChars.IsMatch(proposedPiecePlacement);
         }
     }
 }
