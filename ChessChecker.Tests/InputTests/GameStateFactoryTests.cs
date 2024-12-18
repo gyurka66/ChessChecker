@@ -24,7 +24,7 @@ namespace ChessChecker.Tests.InputTests
         [Test]
         public void ShouldThrowExceptionOnNullInput()
         {
-            string? input = null;
+            IFENString? input = null;
             Assert.Throws<ArgumentException>(() => _sut!.CreateGameState(input));
         }
     }

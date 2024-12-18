@@ -7,9 +7,9 @@ namespace ChessChecker
 {
     public class GameStateFactory
     {
-        public GameState CreateGameState(string fenString)
+        public GameState CreateGameState(IFENString fenString)
         {
-            if (string.IsNullOrEmpty(fenString))
+            if (fenString == null)
             {
                 throw new ArgumentException("FEN String was empty");
             }
