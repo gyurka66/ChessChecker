@@ -9,6 +9,10 @@ namespace ChessChecker
     {
         public GameState CreateGameState(string fenString)
         {
+            if (string.IsNullOrEmpty(fenString))
+            {
+                throw new ArgumentException("FEN String was empty");
+            }
             return null;
         }
     }
