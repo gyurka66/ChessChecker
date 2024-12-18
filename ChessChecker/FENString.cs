@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace ChessChecker
 {
+    public interface IFENString
+    {
+        public string PiecePlacement { get; }
+        public string ActiveColour { get; }
+        public string CastlingRights { get; }
+        public string EnPassantTargets { get; }
+        public int HalfmoveClock { get; }
+        public int FullmoveNumber { get; }
+    }
+
     /// <summary>
     /// String used to encode the current state of a chess game.
     /// https://www.chess.com/terms/fen-chess
     /// </summary>
-    public class FENString
+    public class FENString : IFENString
     {
         public string PiecePlacement { get; init; }
         public string ActiveColour { get; init; }
