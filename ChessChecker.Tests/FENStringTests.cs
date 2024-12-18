@@ -8,17 +8,12 @@ namespace ChessChecker.Tests
     [TestFixture]
     public class FENStringTests
     {
-        [Test]
-        public void ShouldThrowExceptionOnNullInput()
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase(" ")]
+        public void ShouldThrowExceptionOnBlankInput(string? input)
         {
-            string? input = null;
-            Assert.Throws<ArgumentException>(() => new FENString(input));
-        }
-
-        [Test]
-        public void ShouldThrowExceptionOnEmptyInput()
-        {
-            string input = string.Empty;
             Assert.Throws<ArgumentException>(() => new FENString(input));
         }
     }
