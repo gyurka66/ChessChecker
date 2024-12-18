@@ -48,7 +48,7 @@ namespace ChessChecker.Tests.InputTests
 
         [TestCase("r w - - 0 0")]
         [TestCase("rnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0")]
-        [TestCase("gnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0")]
+        [TestCase("gnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0")]
         public void ShouldThrowExceptionOnInvalidPiecePlacement(string input)
         {
             Assert.Throws<ArgumentException>(() => new FENString(input));
@@ -67,8 +67,8 @@ namespace ChessChecker.Tests.InputTests
 
         [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR - - - 0 0")]
         [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR x - - 0 0")]
-        [TestCase("gnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR ww - - 0 0")]
-        [TestCase("gnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR wb - - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR ww - - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR wb - - 0 0")]
         public void ShouldThrowExceptionOnInvalidActiveColour(string input)
         {
             Assert.Throws<ArgumentException>(() => new FENString(input));
