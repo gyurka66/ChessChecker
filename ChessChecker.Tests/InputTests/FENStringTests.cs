@@ -65,6 +65,15 @@ namespace ChessChecker.Tests.InputTests
             return new FENString(input).ActiveColour;
         }
 
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR - - - 0 0")]
+        [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR x - - 0 0")]
+        [TestCase("gnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR ww - - 0 0")]
+        [TestCase("gnbqkbnr/pppppppp/9/8/8/8/PPPPPPPP/RNBQKBNR wb - - 0 0")]
+        public void ShouldThrowExceptionOnInvalidActiveColour(string input)
+        {
+            Assert.Throws<ArgumentException>(() => new FENString(input));
+        }
+
         [TestCase("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 0", ExpectedResult = "-")]
         [TestCase("4k2r/6r1/8/8/8/8/3R4/R3K3 w Qk - 0 1", ExpectedResult = "Qk")]
         [TestCase(
