@@ -41,5 +41,12 @@ namespace ChessChecker.Tests.PieceTests
             Square square = new(_mockPieceA);
             Assert.Throws<ApplicationException>(() => square.Piece = _mockPieceB);
         }
+
+        [Test]
+        public void ShouldNotThrowExceptionWhenTryingToRemovePiece()
+        {
+            Square square = new(_mockPieceA);
+            Assert.DoesNotThrow(() => square.Piece = null);
+        }
     }
 }
