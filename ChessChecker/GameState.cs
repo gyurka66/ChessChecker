@@ -17,10 +17,13 @@ namespace ChessChecker
 
         private IPiece.PlayerColor _activeColour;
 
-        public GameState(Square[,] board, IPiece.PlayerColor color)
+        private IWritable _output;
+
+        public GameState(Square[,] board, IPiece.PlayerColor color, IWritable output)
         {
             _board = board ?? throw new NullReferenceException("Supplied an empty board array");
             _activeColour = color;
+            _output = output;
         }
 
         public void AddToSquare(IPiece piece, (int f, int r) position)
@@ -33,6 +36,7 @@ namespace ChessChecker
             {
                 throw new ArgumentException("There is no square at that position");
             }
+            
         }
 
         private bool IsPositionInBounds((int f, int r) position)
