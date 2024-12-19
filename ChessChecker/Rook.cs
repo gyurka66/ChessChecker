@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChessChecker
 {
-    public class Rook : Piece
+    public class Rook(IPiece.PlayerColor color) : Piece(color)
     {
         public override List<Square> PossibleMoves(Square[,] board, (int, int) piecePosition)
         {

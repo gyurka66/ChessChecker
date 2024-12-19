@@ -10,7 +10,7 @@ namespace ChessChecker.Tests.PieceTests
     {
         private class MockPiece(IPiece.PlayerColor col) : Piece(col)
         {
-            public override List<Square> GetPossibleMoves(Square[,] board, (int, int) piecePosition)
+            public override List<Square> PossibleMoves(Square[,] board, (int, int) piecePosition)
             {
                 return [];
             }

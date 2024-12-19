@@ -14,7 +14,7 @@ namespace ChessChecker
             White
         }
 
-        public List<Square> GetPossibleMoves(Square[,] board, (int, int) piecePosition);
+        public List<Square> PossibleMoves(Square[,] board, (int, int) piecePosition);
         public PlayerColor Color { get; }
     }
 
@@ -22,6 +22,6 @@ namespace ChessChecker
     {
         public IPiece.PlayerColor Color { get; init; } = playerColor;
 
-        public abstract List<Square> GetPossibleMoves(Square[,] board, (int, int) piecePosition);
+        public abstract List<Square> PossibleMoves(Square[,] board, (int, int) piecePosition);
     }
 }
