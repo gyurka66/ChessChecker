@@ -9,7 +9,7 @@ namespace ChessChecker.Tests.PieceTests
     [TestFixture]
     public class SquareTests
     {
-        private IPiece? _mockPiece;
+        private Piece? _mockPiece;
 
         [SetUp]
         public void Setup()
@@ -22,7 +22,14 @@ namespace ChessChecker.Tests.PieceTests
         public void ShouldConstructWithNullPiece()
         {
             Square square = new(null);
-            Assert.That(square!.Piece, Is.Null);
+            Assert.That(square.Piece, Is.Null);
+        }
+
+        [Test]
+        public void ShouldConstructWithRealPiece()
+        {
+            Square square = new(_mockPiece);
+            Assert.That(square.Piece, Is.EqualTo(_mockPiece));
         }
     }
 }
