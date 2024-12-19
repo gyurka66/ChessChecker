@@ -10,6 +10,7 @@ namespace ChessChecker.Tests.InputTests
     public class GameStateTests
     {
         private IGameStateFactory? _mockFactory;
+        private IPiece _mockPiece;
 
         [SetUp]
         public void SetUp()
@@ -18,6 +19,8 @@ namespace ChessChecker.Tests.InputTests
             _mockFactory
                 .CreateGameState()
                 .Returns(new GameState(new Square[8, 8], IPiece.PlayerColor.White));
+            _mockPiece = Substitute.For<IPiece>();
+            _mockPiece.Color.Returns(IPiece.PlayerColor.White);
         }
 
         [Test]
@@ -40,6 +43,12 @@ namespace ChessChecker.Tests.InputTests
             GameState gameState = _mockFactory!.CreateGameState();
 
             Assert.Throws<ArgumentException>(() => gameState.AddToSquare(null, (1, 1)));
+        }
+
+        public void AddToSquareShouldThrowExceptionOnInvalidPosition()
+        {
+            GameState gameState = _mockFactory!.CreateGameState();
+            Assert.Throws<ArgumentException>(() => gameState.AddToSquare(_mockPiece, (9, 1)));
         }
     }
 }
