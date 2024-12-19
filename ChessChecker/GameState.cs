@@ -36,7 +36,16 @@ namespace ChessChecker
             {
                 throw new ArgumentException("There is no square at that position");
             }
-            
+            Square square = _board[position.f, position.r];
+            try
+            {
+                square.Piece = piece;
+                _output.WriteLine("Placed a piece");
+            }
+            catch (ApplicationException)
+            {
+                throw new ArgumentException("Made an invalid move");
+            }
         }
 
         private bool IsPositionInBounds((int f, int r) position)
