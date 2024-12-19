@@ -22,5 +22,11 @@ namespace ChessChecker.Tests.InputTests
         {
             Assert.Throws<NullReferenceException>(() => new GameState(null));
         }
+
+        [Test]
+        public void ShouldNotThrowExceptionOnValidBoard()
+        {
+            Assert.DoesNotThrow(() => new GameState(new Square[8, 8]));
+        }
     }
 }
