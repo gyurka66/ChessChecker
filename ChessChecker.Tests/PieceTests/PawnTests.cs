@@ -19,18 +19,17 @@ namespace ChessChecker.Tests.PieceTests
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    board[i, j] = new Square();
+                    board[i, j] = new Square(null);
                 }
             }
 
             PossibleMovesForWhite(board);
             PossibleMovesForBlack(board);
-
         }
 
         private void PossibleMovesForBlack(Square[,] board)
         {
-            Piece piece = new Pawn(PlayerColor.Black);
+            Piece piece = new Pawn(IPiece.PlayerColor.Black);
 
             // Cases
             // On left border of board
@@ -57,7 +56,7 @@ namespace ChessChecker.Tests.PieceTests
 
         private void PossibleMovesForWhite(Square[,] board)
         {
-            Piece piece = new Pawn(PlayerColor.White);
+            Piece piece = new Pawn(IPiece.PlayerColor.White);
 
             // Cases
             // On left border of board
