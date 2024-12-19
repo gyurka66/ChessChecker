@@ -8,9 +8,26 @@ namespace ChessChecker
 {
     public class Square
     {
-        public Piece? Piece { get; set; }
+        private IPiece? _piece;
+        public IPiece? Piece
+        {
+            get => _piece;
+            set
+            {
+                if (_piece == null)
+                {
+                    _piece = value;
+                }
+                else
+                {
+                    throw new ApplicationException(
+                        "Can't put a piece on a filled square. Remove the existing piece first."
+                    );
+                }
+            }
+        }
 
-        public Square(Piece? piece)
+        public Square(IPiece? piece)
         {
             Piece = piece;
         }

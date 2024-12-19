@@ -9,15 +9,15 @@ namespace ChessChecker.Tests.PieceTests
     [TestFixture]
     public class SquareTests
     {
-        private Piece? _mockPieceA;
-        private Piece? _mockPieceB;
+        private IPiece? _mockPieceA;
+        private IPiece? _mockPieceB;
 
         [SetUp]
         public void Setup()
         {
-            _mockPieceA = Substitute.For<Piece>();
+            _mockPieceA = Substitute.For<IPiece>();
             _mockPieceA.Color.Returns(IPiece.PlayerColor.White);
-            _mockPieceB = Substitute.For<Piece>();
+            _mockPieceB = Substitute.For<IPiece>();
             _mockPieceB.Color.Returns(IPiece.PlayerColor.Black);
         }
 
