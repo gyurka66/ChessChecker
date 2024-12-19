@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace ChessChecker
 {
-    public class GameStateFactory(IFENString FENString)
+    public interface IGameStateFactory
+    {
+        public GameState CreateGameState();
+    }
+
+    public class GameStateFactory(IFENString FENString) : IGameStateFactory
     {
         private readonly IFENString? _FENString = FENString;
 
