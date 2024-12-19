@@ -20,9 +20,7 @@ namespace ChessChecker.Tests.InputTests
         [Test]
         public void ShouldThrowExceptionOnNullBoard()
         {
-            Assert.Throws<NullReferenceException>(
-                () => new GameState(null, IPiece.PlayerColor.White)
-            );
+            Assert.Throws<NullReferenceException>(() => new GameState(null));
         }
     }
 }
