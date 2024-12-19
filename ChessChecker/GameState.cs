@@ -13,11 +13,12 @@ namespace ChessChecker
 
         private Square[,] _board;
 
-        //private IPiece.PlayerColor _activeColour;
+        private IPiece.PlayerColor _activeColour;
 
-        public GameState(Square[,] board)
+        public GameState(Square[,] board, IPiece.PlayerColor color)
         {
             _board = board ?? throw new NullReferenceException("Supplied an empty board array");
+            _activeColour = color;
         }
     }
 }
