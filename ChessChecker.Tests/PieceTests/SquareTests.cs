@@ -36,6 +36,13 @@ namespace ChessChecker.Tests.PieceTests
         }
 
         [Test]
+        public void ShouldNotThrowExceptionWhenTryingToPlacePiece()
+        {
+            Square square = new(null);
+            Assert.DoesNotThrow(() => square.Piece = _mockPieceA);
+        }
+
+        [Test]
         public void ShouldThrowExceptionWhenTryingToReplacePiece()
         {
             Square square = new(_mockPieceA);
