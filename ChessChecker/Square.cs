@@ -18,6 +18,10 @@ namespace ChessChecker
                 {
                     _piece = value;
                 }
+                else if (value == null)
+                {
+                    _piece = value;
+                }
                 else
                 {
                     throw new ApplicationException(
