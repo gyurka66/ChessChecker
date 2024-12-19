@@ -45,6 +45,7 @@ namespace ChessChecker.Tests.InputTests
             Assert.Throws<ArgumentException>(() => gameState.AddToSquare(null, (1, 1)));
         }
 
+        [Test]
         public void AddToSquareShouldThrowExceptionOnInvalidPosition()
         {
             GameState gameState = _mockFactory!.CreateGameState();

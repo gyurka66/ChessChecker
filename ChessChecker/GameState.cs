@@ -10,6 +10,8 @@ namespace ChessChecker
     {
         //private const int BOARD_WIDTH = 8;
         //private const int BOARD_HEIGHT = 8;
+        public int BoardWidth => _board.GetLength(0);
+        public int BoardHeight => _board.GetLength(1);
 
         private Square[,] _board;
 
@@ -27,6 +29,17 @@ namespace ChessChecker
             {
                 throw new ArgumentException("Can't add a null piece");
             }
+            if (!IsPositionInBounds(position))
+            {
+                throw new ArgumentException("There is no square at that position");
+            }
+        }
+
+        private bool IsPositionInBounds((int f, int r) position)
+        {
+            bool isFileInBounds = position.f >= 0 && position.f < BoardWidth;
+            bool isRankInBounds = position.r >= 0 && position.r < BoardHeight;
+            return isFileInBounds && isRankInBounds;
         }
     }
 }
