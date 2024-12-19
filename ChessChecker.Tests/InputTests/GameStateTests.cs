@@ -15,6 +15,9 @@ namespace ChessChecker.Tests.InputTests
         public void SetUp()
         {
             _mockFactory = Substitute.For<IGameStateFactory>();
+            _mockFactory
+                .CreateGameState()
+                .Returns(new GameState(new Square[8, 8], IPiece.PlayerColor.White));
         }
 
         [Test]
@@ -29,6 +32,14 @@ namespace ChessChecker.Tests.InputTests
         public void ShouldNotThrowExceptionOnValidBoard()
         {
             Assert.DoesNotThrow(() => new GameState(new Square[8, 8], IPiece.PlayerColor.White));
+        }
+
+        [Test]
+        public void AddToSquareShouldThrowExceptionOnNullPiece()
+        {
+            GameState gameState = _mockFactory!.CreateGameState();
+
+            Assert.Throws<ArgumentException>(() => gameState.AddToSquare(null, (1, 1)));
         }
     }
 }
