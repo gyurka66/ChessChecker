@@ -19,7 +19,7 @@ namespace ChessChecker.Tests.PieceTests
         }
 
         [Test]
-        public void shouldConstructWithNullPiece()
+        public void ShouldConstructWithNullPiece()
         {
             Square square = new(null);
             Assert.That(square!.Piece, Is.Null);
