@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace ChessChecker
 {
-
-    public enum PlayerColor {
-        Black,
-        White
-    }
-    public abstract class Piece
+    public interface IPiece
     {
-        public abstract List<Square> PossibleMoves(Square[,] board, (int, int) piecePosition);
+        public enum PlayerColor
+        {
+            Black,
+            White
+        }
+
+        public List<Square> GetPossibleMoves(Square[,] board, (int, int) piecePosition);
+        public PlayerColor Color { get; }
+    }
+
+    public abstract class Piece(IPiece.PlayerColor playerColor) : IPiece
+    {
+        public IPiece.PlayerColor Color { get; init; } = playerColor;
+
+        public abstract List<Square> GetPossibleMoves(Square[,] board, (int, int) piecePosition);
     }
 }
